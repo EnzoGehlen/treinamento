@@ -1,1 +1,0 @@
-<? $server = shell_exec("uname -n"); ?>
