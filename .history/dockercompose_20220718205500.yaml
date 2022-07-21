@@ -1,0 +1,20 @@
+version: '3.9'
+services:
+  php:
+    image: teste
+    container_name: php
+    restart: always
+    volumes:
+      - '.:/var/www/html/'
+    ports:
+      - '80:80'
+      - '${HTTPS_PORT}:${HTTPS_PORT}'
+      - '${WEBSOCKET_PORT}:${WEBSOCKET_PORT}'
+    links:
+      - redis
+      - mongodb
+    depends_on:
+      - mongodb
+      - redis
+    networks:
+      - app

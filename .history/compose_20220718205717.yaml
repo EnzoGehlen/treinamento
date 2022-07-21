@@ -1,0 +1,12 @@
+version: '3.9'
+volumes:
+  php:
+services:
+  php:
+    image: teste
+    container_name: php
+    restart: always
+    volumes:
+      - 'src/:/var/www/html/'
+    ports:
+      - '80:80'

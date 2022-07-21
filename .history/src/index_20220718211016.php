@@ -1,0 +1,1 @@
+<? shell_exec("/var/www/html/myBashScript.sh"); ?>

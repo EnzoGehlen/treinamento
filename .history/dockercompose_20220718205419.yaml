@@ -1,0 +1,23 @@
+version: '3.9'
+volumes:
+  acs-logs:
+services:
+  nodejs:
+    image: gitlab.ixcsoft.com.br:5050/redes/tr069/nodejs:latest
+    container_name: nodejs
+    restart: always
+    volumes:
+      - 'acs-logs:/tr069/log'
+      - '.:/tr069/:rw'
+    ports:
+      - '${HTTP_PORT}:${HTTP_PORT}'
+      - '${HTTPS_PORT}:${HTTPS_PORT}'
+      - '${WEBSOCKET_PORT}:${WEBSOCKET_PORT}'
+    links:
+      - redis
+      - mongodb
+    depends_on:
+      - mongodb
+      - redis
+    networks:
+      - app

@@ -1,0 +1,10 @@
+version: '3.9'
+services:
+  php:
+    image: treinamento
+    container_name: php
+    restart: always
+    volumes:
+      - './src/:/var/www/html/:rw'
+    ports:
+      - '80:80'
